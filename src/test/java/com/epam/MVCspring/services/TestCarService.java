@@ -3,6 +3,7 @@ package com.epam.MVCspring.services;
 import com.epam.MVCspring.beans.Car;
 import com.epam.MVCspring.dao.CarDao;
 import com.epam.MVCspring.dao.CarDaoImpl;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -31,8 +32,11 @@ public class TestCarService {
     public static void setUpClass() throws Exception {
     }
 
-    @AfterClass
+    @After
     public static void tearDownClass() {
+        //удалить запись
+        CarServiceImpl carServiceImpl = new CarServiceImpl();
+        carServiceImpl.deleteCarById(1111);
     }
 
     @Test
